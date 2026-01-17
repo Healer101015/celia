@@ -6,9 +6,9 @@ const Home = () => {
   const celiaData = {
     personalInfo: {
       name: "Celia Aparecida Monteiro Vieira",
-      birthDate: "04/03/78", // Data Atualizada
+      birthDate: "04/03/78",
       bloodType: "", // Campo Vazio
-      photo: "https://placehold.co/400x400/e2e8f0/ef4444?text=Foto+Celia",
+      photo: "https://media.discordapp.net/attachments/1428530964400701541/1462225754476773461/602848482_1587774299336129_3799481317381476382_n.png?ex=696d6b5a&is=696c19da&hm=cab02d8fe72f10380bada9f3460d622cb58e00a73d1470df493fc51ae0851ff3&=&format=webp&quality=lossless",
       religion: "Testemunha de Jeová",
       conditions: [
         "Doença Celíaca (CID10-K90)",
@@ -21,7 +21,18 @@ const Home = () => {
       ]
     },
     emergencyContacts: [
-      // 1. PROCURADORES (PRIORIDADE LEGAL)
+      // 1. FAMÍLIA (PRIORIDADE SOLICITADA)
+      {
+        name: "Jose Carlos",
+        relation: "Marido",
+        phone: "5511999999999" // Insira o número correto
+      },
+      {
+        name: "Beatriz Monteiro Vieira",
+        relation: "Filha",
+        phone: "5511888888888" // Insira o número correto
+      },
+      // 2. PROCURADORES (COM ENDEREÇO)
       {
         name: "Leandro Rojo",
         relation: "Procurador",
@@ -33,17 +44,6 @@ const Home = () => {
         relation: "Procurador Alt.",
         phone: "55119969428995",
         address: "Av. Waldemar Frietz, 1062 - Apto 211, Cohab Anchieta"
-      },
-      // 2. FAMÍLIA (ABAIXO DOS PROCURADORES)
-      {
-        name: "Jose Carlos",
-        relation: "Marido",
-        phone: "5511999999999" // Insira o número correto
-      },
-      {
-        name: "Beatriz Monteiro Vieira",
-        relation: "Filha",
-        phone: "5511888888888" // Insira o número correto
       }
     ],
     medicalInfo: {
@@ -126,7 +126,7 @@ const Home = () => {
           </p>
 
           <div className="flex gap-3">
-            {/* Exibe o tipo sanguíneo apenas se houver informação, senão não renderiza ou exibe placeholder vazio se preferir */}
+            {/* Exibe o tipo sanguíneo apenas se houver informação */}
             {celiaData.personalInfo.bloodType && (
               <span className="flex items-center gap-1.5 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-bold border border-white/20 uppercase tracking-wide">
                 <Droplet size={14} className="text-red-400 fill-red-400" /> {celiaData.personalInfo.bloodType}
@@ -165,7 +165,7 @@ const Home = () => {
           </div>
         </div>
 
-        {/* --- 3. CONTATOS (PROCURADORES NO TOPO + FAMÍLIA ABAIXO) --- */}
+        {/* --- 3. CONTATOS (FAMÍLIA PRIMEIRO + PROCURADORES) --- */}
         <div className="space-y-4 animate-fade-in" style={{ animationDelay: '0.1s' }}>
           <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider ml-2 flex items-center gap-2">
             <Users size={14} /> Contatos de Emergência
