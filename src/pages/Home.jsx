@@ -162,7 +162,7 @@ const Home = () => {
                       <p className="font-bold">{celiaData.medicalInfo.insurance.unimed.plan}</p>
                     </div>
                     <div>
-                      <p className="text-teal-200 text-[10px] uppercase">Acomodação</p>
+                      <p className="text-teal-200 text-[10px] uppercase">Infermaria</p>
                       <p className="font-bold">{celiaData.medicalInfo.insurance.unimed.accommodation}</p>
                     </div>
                   </div>
