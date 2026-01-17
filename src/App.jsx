@@ -9,7 +9,7 @@ export default function App() {
     <Router>
       <div className="flex flex-col min-h-screen bg-brand-light">
         {/* Navbar fixa no topo */}
-        <Navbar />
+
 
         {/* Conteúdo principal que expande */}
         <main className="flex-grow">
@@ -20,7 +20,7 @@ export default function App() {
         </main>
 
         {/* Footer fixo no final */}
-        <Footer />
+
       </div>
     </Router>
   );
