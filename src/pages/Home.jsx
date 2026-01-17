@@ -144,7 +144,7 @@ const Home = () => {
 
             <div className="relative z-10 p-5 h-full flex flex-col justify-between">
               <div className="flex justify-between items-start">
-                <span className="font-bold italic text-xl tracking-tighter">Notridame <span className="font-light text-xs align-top">Seguros</span></span>
+                <span className="font-bold italic text-xl tracking-tighter">Hapvida Notredame<span className="font-light text-xs align-top">Seguros</span></span>
                 <span className="bg-white/20 px-2 py-1 rounded text-[10px] font-bold tracking-wider">NACIONAL</span>
               </div>
 
