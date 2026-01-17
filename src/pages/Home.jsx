@@ -34,7 +34,7 @@ const Home = () => {
         { name: "Medicação para Dor", time: "S/N (Evitar Codeína)" }
       ],
       insurance: {
-        unimed: { number: "0V236000613002", plan: "SMART 200UP", accommodation: "Infermaria", validity: "N/A" },
+        unimed: { number: "0V236000613002", plan: "SMART 200UP", accommodation: "Enfermaria", validity: "N/A" },
         sus: { number: "898 0014 0840 5735" } // Placeholder padrão SUS
       },
       advanceDirective: "TESTEMUNHA DE JEOVÁ: RECUSA ABSOLUTA DE TRANSFUSÃO DE SANGUE (Total ou Componentes Primários). Documento legal em posse dos procuradores.",
