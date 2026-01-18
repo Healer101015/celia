@@ -26,8 +26,8 @@ const Home = () => {
       ]
     },
     emergencyContacts: [
-      { name: "Jose Carlos", relation: "Marido", phone: "5511999999999" },
-      { name: "Beatriz Monteiro Vieira", relation: "Filha", phone: "5511888888888" },
+      { name: "Jose Carlos", relation: "Marido", phone: "11933172304" },
+      { name: "Beatriz Monteiro Vieira", relation: "Filha", phone: "5511913437746" },
       { name: "Leandro Rojo", relation: "Procurador", phone: "551197642927", address: "Rua Desembargador Carneiro Ribeiro, 48" },
       { name: "Admir Bernadino Siqueira", relation: "Procurador Alt.", phone: "55119969428995", address: "Av. Waldemar Frietz, 1062 - Apto 211, Cohab Anchieta" }
     ],
