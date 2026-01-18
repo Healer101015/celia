@@ -22,8 +22,8 @@ const Home = () => {
       ]
     },
     emergencyContacts: [
-      { name: "Jose Carlos", relation: "Marido", phone: "5511999999999" },
-      { name: "Beatriz Monteiro Vieira", relation: "Filha", phone: "5511888888888" },
+      { name: "Jose Carlos", relation: "Marido", phone: "5511933172304" },
+      { name: "Beatriz Monteiro Vieira", relation: "Filha", phone: "5511913437746" },
       { name: "Leandro Rojo", relation: "Procurador", phone: "551197642927", address: "Rua Desembargador Carneiro Ribeiro, 48" },
       { name: "Admir Bernadino Siqueira", relation: "Procurador Alt.", phone: "55119969428995", address: "Av. Waldemar Frietz, 1062 - Apto 211, Cohab Anchieta" }
     ],
@@ -35,7 +35,7 @@ const Home = () => {
       ],
       insurance: {
         unimed: { number: "0V236000613002", plan: "SMART 200UP", accommodation: "Enfermaria", validity: "N/A" },
-        sus: { number: "898 0014 0840 5735" } // Placeholder padrão SUS
+        sus: { number: "898 0014 0840 5735" }
       },
       advanceDirective: "TESTEMUNHA DE JEOVÁ: RECUSA ABSOLUTA DE TRANSFUSÃO DE SANGUE (Total ou Componentes Primários). Documento legal em posse dos procuradores.",
       observation: "Paciente com múltiplas patologias ortopédicas e autoimunes. Risco de choque com Glúten/Codeína."
@@ -90,9 +90,7 @@ const Home = () => {
           <div className="relative mb-6 group">
             <div className="absolute -inset-1 bg-white/20 rounded-full blur-md"></div>
             <img src={celiaData.personalInfo.photo} alt="Célia" className="w-44 h-44 rounded-full border-[5px] border-white/90 shadow-2xl object-cover relative z-10" />
-            <div className="absolute bottom-2 right-2 bg-white text-indigo-900 p-3 rounded-full shadow-lg z-20 ring-4 ring-black/10">
-              <ShieldAlert size={28} fill="currentColor" className="text-red-600" />
-            </div>
+            {/* Ícone removido daqui */}
           </div>
           <h1 className="text-3xl font-black tracking-tight mb-4 text-center leading-tight drop-shadow-md">{celiaData.personalInfo.name}</h1>
           <div className="h-10 mb-4 flex items-center justify-center w-full max-w-xs">
@@ -131,7 +129,7 @@ const Home = () => {
           </div>
         </div>
 
-        {/* --- 3. DOCUMENTOS DIGITAIS (NOVO) --- */}
+        {/* --- 3. DOCUMENTOS DIGITAIS --- */}
         <div className="space-y-4 animate-fade-in" style={{ animationDelay: '0.1s' }}>
           <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest ml-4 mb-2 flex items-center gap-2">
             <CreditCard size={14} /> Documentos Pessoais
@@ -311,14 +309,6 @@ const Home = () => {
               </div>
             ))}
           </div>
-        </div>
-
-        {/* --- OBSERVAÇÃO --- */}
-        <div className="bg-white border-l-4 border-red-500 p-5 rounded-r-xl shadow-md mx-2 mt-4">
-          <p className="text-slate-800 text-xs font-semibold leading-relaxed">
-            <span className="text-red-500 font-black uppercase text-[10px] tracking-widest block mb-1">Observação Clínica</span>
-            "{celiaData.medicalInfo.observation}"
-          </p>
         </div>
 
         <div className="text-center pt-8 opacity-50">
