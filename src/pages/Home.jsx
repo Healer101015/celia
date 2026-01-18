@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, AlertTriangle, Pill, Activity, MessageCircle, Ambulance, Scale, ShieldAlert, Clock, User, MapPin, Bone, Users, FileWarning, Zap, CreditCard, Layout } from 'lucide-react';
+import { Phone, AlertTriangle, Pill, Activity, MessageCircle, Ambulance, Scale, ShieldAlert, Clock, User, MapPin, Bone, Users, FileWarning, Zap, CreditCard, Layout, FileText, X, ChevronRight } from 'lucide-react';
+
+// IMPORTAÇÃO DA IMAGEM DO RELATÓRIO
+// Certifique-se que o arquivo MEDICO.PNG está na pasta src/assets/
+import medicoImg from '../assets/MEDICO.png';
 
 const Home = () => {
   // --- DADOS DA CÉLIA ---
@@ -22,8 +26,8 @@ const Home = () => {
       ]
     },
     emergencyContacts: [
-      { name: "Jose Carlos", relation: "Marido", phone: "5511933172304" },
-      { name: "Beatriz Monteiro Vieira", relation: "Filha", phone: "5511913437746" },
+      { name: "Jose Carlos", relation: "Marido", phone: "5511999999999" },
+      { name: "Beatriz Monteiro Vieira", relation: "Filha", phone: "5511888888888" },
       { name: "Leandro Rojo", relation: "Procurador", phone: "551197642927", address: "Rua Desembargador Carneiro Ribeiro, 48" },
       { name: "Admir Bernadino Siqueira", relation: "Procurador Alt.", phone: "55119969428995", address: "Av. Waldemar Frietz, 1062 - Apto 211, Cohab Anchieta" }
     ],
@@ -44,6 +48,8 @@ const Home = () => {
 
   // --- ESTADOS E EFEITOS ---
   const [alertIndex, setAlertIndex] = useState(0);
+  const [showReport, setShowReport] = useState(false); // Estado para controlar o modal do relatório
+
   const criticalAlerts = [
     { text: "DOENÇA CELÍACA - ZERO GLÚTEN", color: "bg-orange-500", icon: <AlertTriangle size={16} /> },
     { text: "PROIBIDO TRANSFUSÃO DE SANGUE", color: "bg-red-600", icon: <FileWarning size={16} /> },
@@ -90,7 +96,6 @@ const Home = () => {
           <div className="relative mb-6 group">
             <div className="absolute -inset-1 bg-white/20 rounded-full blur-md"></div>
             <img src={celiaData.personalInfo.photo} alt="Célia" className="w-44 h-44 rounded-full border-[5px] border-white/90 shadow-2xl object-cover relative z-10" />
-            {/* Ícone removido daqui */}
           </div>
           <h1 className="text-3xl font-black tracking-tight mb-4 text-center leading-tight drop-shadow-md">{celiaData.personalInfo.name}</h1>
           <div className="h-10 mb-4 flex items-center justify-center w-full max-w-xs">
@@ -175,7 +180,6 @@ const Home = () => {
 
           {/* CARTÃO SUS */}
           <div className="relative w-full h-56 bg-slate-50 rounded-2xl shadow-xl overflow-hidden border border-slate-200 flex flex-col">
-            {/* Faixa SUS */}
             <div className="h-14 bg-blue-600 relative flex items-center px-4 overflow-hidden">
               <div className="absolute right-0 h-full w-24 bg-green-500 transform skew-x-12 translate-x-4"></div>
               <div className="absolute right-16 h-full w-4 bg-yellow-400 transform skew-x-12"></div>
@@ -262,7 +266,7 @@ const Home = () => {
           </div>
         </div>
 
-        {/* --- 5. INFO MÉDICA (DIAGNÓSTICOS E ALERGIAS) --- */}
+        {/* --- 5. INFO MÉDICA --- */}
         <div className="bg-white rounded-[2.5rem] p-6 shadow-xl shadow-slate-200 border border-slate-100 mt-6">
           <div className="flex items-center gap-3 mb-6 border-b border-slate-100 pb-4">
             <div className="bg-blue-100 p-2.5 rounded-2xl text-blue-600"><Activity size={20} /></div>
@@ -311,7 +315,60 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="text-center pt-8 opacity-50">
+        {/* --- 7. NOVO BOTÃO: RELATÓRIO MÉDICO --- */}
+        <div className="mt-8 mb-4">
+          <button
+            onClick={() => setShowReport(true)}
+            className="w-full bg-white rounded-3xl p-5 shadow-lg shadow-indigo-100 border border-indigo-50 flex items-center justify-between group hover:border-indigo-200 transition-all active:scale-95"
+          >
+            <div className="flex items-center gap-4">
+              <div className="bg-indigo-600 p-3 rounded-2xl text-white shadow-lg shadow-indigo-200 group-hover:scale-110 transition-transform">
+                <FileText size={24} />
+              </div>
+              <div className="text-left">
+                <h3 className="font-bold text-slate-800 text-lg">Relatório Médico</h3>
+                <p className="text-xs text-slate-400 font-medium uppercase tracking-wide">Toque para visualizar</p>
+              </div>
+            </div>
+            <div className="bg-slate-50 p-2 rounded-full text-slate-300 group-hover:text-indigo-600 group-hover:bg-indigo-50 transition-colors">
+              <ChevronRight size={24} />
+            </div>
+          </button>
+        </div>
+
+        {/* --- MODAL DO RELATÓRIO --- */}
+        {showReport && (
+          <div className="fixed inset-0 z-[60] bg-slate-900/90 backdrop-blur-md flex items-center justify-center p-4 animate-fade-in" onClick={() => setShowReport(false)}>
+            <div className="bg-white rounded-3xl w-full max-w-2xl max-h-[90vh] overflow-hidden flex flex-col relative shadow-2xl animate-fade-in" onClick={e => e.stopPropagation()}>
+              {/* Header do Modal */}
+              <div className="p-5 border-b border-slate-100 flex justify-between items-center bg-white z-10">
+                <div className="flex items-center gap-3">
+                  <div className="bg-indigo-100 p-2 rounded-full text-indigo-600"><FileText size={18} /></div>
+                  <h3 className="font-bold text-slate-800 text-lg">Relatório Médico Digital</h3>
+                </div>
+                <button onClick={() => setShowReport(false)} className="p-2 bg-slate-100 text-slate-500 rounded-full hover:bg-red-50 hover:text-red-500 transition-colors">
+                  <X size={24} />
+                </button>
+              </div>
+
+              {/* Corpo do Modal (Imagem com Scroll) */}
+              <div className="flex-1 overflow-y-auto bg-slate-50 p-4 flex justify-center items-start">
+                <img
+                  src={medicoImg}
+                  alt="Relatório Médico"
+                  className="w-full h-auto object-contain rounded-xl shadow-sm border border-slate-200"
+                />
+              </div>
+
+              {/* Footer do Modal */}
+              <div className="p-4 border-t border-slate-100 bg-white text-center">
+                <p className="text-xs text-slate-400">Documento confidencial. Uso exclusivo para emergências.</p>
+              </div>
+            </div>
+          </div>
+        )}
+
+        <div className="text-center pt-4 opacity-50">
           <p className="text-slate-400 text-[10px] font-bold uppercase tracking-[0.3em]">Healer ID System</p>
         </div>
 
