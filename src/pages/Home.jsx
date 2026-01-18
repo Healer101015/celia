@@ -4,6 +4,7 @@ import { Phone, AlertTriangle, Pill, Activity, MessageCircle, Ambulance, Scale, 
 // IMPORTAÇÃO DA IMAGEM DO RELATÓRIO
 // Certifique-se que o arquivo MEDICO.PNG está na pasta src/assets/
 import medicoImg from '../assets/MEDICO.png';
+import euImg from '../assets/eu.png'; // 1. Importe a imagem aqui
 
 const Home = () => {
   // --- DADOS DA CÉLIA ---
@@ -13,7 +14,7 @@ const Home = () => {
       birthDate: "04/03/78",
       sex: "F",
       bloodType: "",
-      photo: "https://media.discordapp.net/attachments/1428530964400701541/1462225754476773461/602848482_1587774299336129_3799481317381476382_n.png?ex=696d6b5a&is=696c19da&hm=cab02d8fe72f10380bada9f3460d622cb58e00a73d1470df493fc51ae0851ff3&=&format=webp&quality=lossless",
+      photo: euImg, // 2. Use a variável diretamente (sem aspas)
       religion: "Testemunha de Jeová",
       conditions: [
         "Doença Celíaca (CID10-K90)",
